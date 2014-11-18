@@ -1,0 +1,14 @@
+<%= form_for @job do |f| %>
+  <% if @job.errors.any? %>
+    <% @job.errors.full_messages.each do |message| %>
+            <br/><span><%= message %></span>
+      <% end %>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br/>
+
+
+  <%= f.submit "Save" %>
+<%end %>
+<%= link_to "Back", jobs_path%>

@@ -1,0 +1,17 @@
+<%= link_to "New Job", new_job_path%>
+<table>
+<thead>
+  <tr><th>ID</th><th>Title</th><th>manage</th></tr>
+</thead>
+<tbody>
+<% @jobs.each do |job| %>
+    <tr>
+      <td><%= job.id %></td>
+      <td><%= link_to job.title, job_path(job) %></td>
+      <td><%= link_to "Edit", edit_job_path(job) %>
+          <%= link_to "Delete", job_path(job), method: :delete %>
+      </td>
+    </tr>
+<%end%>
+</tbody>
+</table>
