@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_filter :load_job , only: [:show,:edit,:update]
+  helper :jobs
 
   def index
     @jobs = Job.all

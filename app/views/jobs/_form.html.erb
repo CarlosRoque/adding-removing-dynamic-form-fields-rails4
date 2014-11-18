@@ -8,6 +8,18 @@
   <%= f.label :title %>
   <%= f.text_field :title %> <br/>
 
+  <div>
+    <%= add_child_button "New Task",:tasks,"#tasks" %>
+    <%= new_fields_template f, :tasks %>
+  </div>
+
+  <div id="tasks" style="border:1px solid #777;">
+      <%= f.fields_for :tasks do |builder| %>
+        <div>
+        <%= render "task_fields", :f => builder %>
+      </div>
+      <% end %>
+  </div>
 
   <%= f.submit "Save" %>
 <%end %>
